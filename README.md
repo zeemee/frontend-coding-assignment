@@ -24,7 +24,7 @@ The React app should match as closely as possible the design found in this [Figm
 
 The search endpoint is defined as follows:
 
-`GET /api/search?index=<number>&limit=<number>&query=<string>`
+`GET http://localhost:4000/api/search?index=<number>&limit=<number>&query=<string>`
 
 Parameters:
 
@@ -53,7 +53,7 @@ The response format looks like this:
 ```
 
 The details endpoint is defined as follows:
-`GET /api/detail?id=<some type of id>`
+`GET http://localhost:4000/api/detail?id=<some type of id>`
 
 Parameters:
 
