@@ -53,6 +53,7 @@ The response format looks like this:
 ```
 
 The details endpoint is defined as follows:
+
 `GET http://localhost:4000/api/detail?id=<some type of id>`
 
 Parameters:
