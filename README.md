@@ -32,7 +32,7 @@ Parameters:
 
 **limit**: A numerical limit on results to return. Default 10.
 
-**query**: A string to query for results. This should search the **name** of a cocktail recipe inclusively, as in, 'rita' should find 'Margarita'. An empty query string should return an array of unfiltered results.
+**query**: A string to query for results. This searches the **name** of a cocktail recipe inclusively, as in, 'rita' finds 'Margarita'. An empty query string returns an array of unfiltered results.
 
 The response format looks like this:
 
@@ -57,7 +57,7 @@ The details endpoint is defined as follows:
 
 Parameters:
 
-**id**: This should be an identifier of a cocktail recipe record. I'd assume an int, but if you want to use a UUID string, that's fine too.
+**id**: This should be an identifier of a cocktail recipe record.
 
 The response format looks like this:
 
