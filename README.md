@@ -19,8 +19,9 @@ The React app should match as closely as possible the design found in this [Figm
 * You can build this with any node modules or services you see fit.
 * We have included the [Jest](https://jestjs.io/) test framework for your convenience and expect to see tests that exercise the behavior of the code you write.
 * We have included the assets for the Figma design in the `src/assets` folder.
+* To run the public API locally, follow the instructions in this [repository](https://github.com/zeemee/zeemee-public-api).
 
-### Specifications
+### Public API Specification
 
 The search endpoint is defined as follows:
 
@@ -85,9 +86,9 @@ The response format looks like this:
 }
 ```
 
-### Resources
+### Credits
 
-The data returned by the public API is based on the free api at [The Cocktail DB](https://www.thecocktaildb.com), because why can't work be fun? :) To run the public API locally, follow the instructions in this [repository](https://github.com/zeemee/zeemee-public-api).
+For your information, the data returned by the public API is based on the data provided by [The Cocktail DB](https://www.thecocktaildb.com), because why can't work be fun? :)
 
 ### Submission
 
