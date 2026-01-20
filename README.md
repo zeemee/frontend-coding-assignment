@@ -25,13 +25,13 @@ The React app should match as closely as possible the design found in this [Figm
 
 The search endpoint is defined as follows:
 
-`GET http://localhost:4000/api/search?index=<number>&limit=<number>&query=<string>`
+`GET https://zeemee-public-api-661c74e270ac.herokuapp.com/api/search?index=<number>&limit=<number>&query=<string>`
 
 Parameters:
 
 **index**: A numerical index that represents the offset to start returning results from. Default 0.
 
-**limit**: A numerical limit on results to return. Default 10.
+**limit**: A numerical limit on results to return. Default 6.
 
 **query**: A string to query for results. This searches the **name** of a cocktail recipe inclusively, as in, 'rita' finds 'Margarita'. An empty query string returns an array of unfiltered results.
 
@@ -55,7 +55,7 @@ The response format looks like this:
 
 The details endpoint is defined as follows:
 
-`GET http://localhost:4000/api/detail?id=<number>`
+`GET https://zeemee-public-api-661c74e270ac.herokuapp.com/api/detail?id=<number>`
 
 Parameters:
 
