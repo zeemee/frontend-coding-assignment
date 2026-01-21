@@ -8,17 +8,17 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+      <div className='flex px-7 mb-8'>
+        <a className='grow' href="https://vite.dev" target="_blank">
+          <img src={viteLogo} className="logo w-full" alt="Vite logo" />
         </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+        <a className='grow' href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react w-full" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+      <h1 className='font-bold mb-8'>Vite + React</h1>
+      <div className="card mb-8">
+        <button className="mb-4" onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
         <p>
