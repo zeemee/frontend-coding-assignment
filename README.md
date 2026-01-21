@@ -15,9 +15,9 @@ The React app should match as closely as possible the design found in this [Figm
 
 ### Requirements
 
-* Clone this repo as a starting point for the assignment. It was created using [Create React App](https://create-react-app.dev/) and has been configured with [Typescript](https://www.typescriptlang.org/) and [TailwindCSS](https://tailwindcss.com/).
+* Clone this repo as a starting point for the assignment. It was created using [Vite](https://vite.dev/guide/) and has been configured with [Typescript](https://www.typescriptlang.org/) and [TailwindCSS](https://tailwindcss.com/).
 * You can build this with any node modules or services you see fit.
-* We have included the [Jest](https://jestjs.io/) test framework for your convenience and expect to see tests that exercise the behavior of the code you write.
+* We have included the [Vitest](https://vitest.dev/guide/) test framework for your convenience and expect to see tests that exercise the behavior of the code you write.
 * We have included the assets for the Figma design in the `src/assets` folder.
 * To run the public API locally, follow the instructions in this [repository](https://github.com/zeemee/zeemee-public-api).
 
@@ -97,5 +97,3 @@ We're flexible in how you submit your work. If you want to .zip it up and email 
 ### Thoughts and Notes
 
 This is just an exercise. While the methods and approaches you take to problems should be indicative of how you would approach a problem in a production environment, we don't expect any over-the-top work here. Don't spend tons of time on it. If you think something really needs a complex solution that would take a lot of work, implement a lesser solution, write a note in comments about a proper solution, and we can discuss it.
-
-
