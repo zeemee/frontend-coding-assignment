@@ -10,7 +10,7 @@ interface PaginationProps {
   totalPages: number;
 }
 
-export default function Pagination({ hasPrev, hasNext, onPrev, onNext, currentPage, totalPages }: PaginationProps) {
+export default function Pagination({ hasPrev, hasNext, onPrev, onNext }: PaginationProps) {
   return (
     <div className="flex items-center gap-2 mt-6">
       <button
@@ -29,9 +29,6 @@ export default function Pagination({ hasPrev, hasNext, onPrev, onNext, currentPa
       >
         <img src={nextIcon} alt="" className="w-4 h-4" />
       </button>
-      <span className="text-white/50 text-sm ml-2">
-        {currentPage} / {totalPages}
-      </span>
     </div>
   );
 }

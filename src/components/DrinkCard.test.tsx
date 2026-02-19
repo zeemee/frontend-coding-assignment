@@ -1,7 +1,8 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
+import { screen } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
 import DrinkCard from './DrinkCard';
 import type { DrinkSummary } from '../types';
+import { renderWithRouter } from '../test-utils';
 
 const mockDrink: DrinkSummary = {
   id: 1,
@@ -11,18 +12,17 @@ const mockDrink: DrinkSummary = {
 };
 
 describe('DrinkCard', () => {
-  it('renders the drink card component', () => {
-    render(<DrinkCard drink={mockDrink} navigate={() => {}} />);
+  it('renders the drink card component', async () => {
+    renderWithRouter(<DrinkCard drink={mockDrink} />);
 
-    expect(screen.getByText('Margarita')).toBeInTheDocument();
+    expect(await screen.findByText('Margarita')).toBeInTheDocument();
     expect(screen.getByText('Cocktail')).toBeInTheDocument();
   });
 
-  it('calls navigate with the drink URL on click', () => {
-    const navigate = vi.fn();
-    render(<DrinkCard drink={mockDrink} navigate={navigate} />);
+  it('renders a link to the drink detail page', async () => {
+    renderWithRouter(<DrinkCard drink={mockDrink} />);
 
-    fireEvent.click(screen.getByRole('link'));
-    expect(navigate).toHaveBeenCalledWith('/drink/1');
+    const link = await screen.findByRole('link');
+    expect(link).toHaveAttribute('href', '/drink/1');
   });
 });

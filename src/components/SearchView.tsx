@@ -5,10 +5,9 @@ import LoadingSpinner from './LoadingSpinner';
 
 interface SearchViewProps {
   query: string;
-  navigate: (to: string) => void;
 }
 
-export default function SearchView({ query, navigate }: SearchViewProps) {
+export default function SearchView({ query }: SearchViewProps) {
   const {
     drinks,
     isLoading,
@@ -22,7 +21,7 @@ export default function SearchView({ query, navigate }: SearchViewProps) {
   } = useSearch(query);
 
   return (
-    <div className="flex-1 px-8 py-6">
+    <div className="flex-1  pt-[58px]">
       <h2 className="text-white text-3xl font-bold mb-6">
         {query ? `Results for "${query}"` : 'All Drinks'}
       </h2>
@@ -41,7 +40,7 @@ export default function SearchView({ query, navigate }: SearchViewProps) {
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {drinks.map((drink, idx) => (
-              <DrinkCard key={idx} drink={drink} navigate={navigate} />
+              <DrinkCard key={idx} drink={drink} />
             ))}
           </div>
           <Pagination

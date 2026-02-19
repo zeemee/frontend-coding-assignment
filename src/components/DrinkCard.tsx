@@ -1,32 +1,27 @@
+import { Link } from '@tanstack/react-router';
 import type { DrinkSummary } from '../types';
 import CategoryBadge from './CategoryBadge';
 
 interface DrinkCardProps {
   drink: DrinkSummary;
-  navigate: (to: string) => void;
 }
 
-export default function DrinkCard({ drink, navigate }: DrinkCardProps) {
-  function handleClick(e: React.MouseEvent) {
-    e.preventDefault();
-    navigate(`/drink/${drink.id}`);
-  }
-
+export default function DrinkCard({ drink }: DrinkCardProps) {
   return (
-    <a
-      href={`/drink/${drink.id}`}
-      onClick={handleClick}
-      className="flex items-center gap-4 bg-white/5 border border-white/20 rounded-lg overflow-hidden hover:bg-white/10 transition-colors text-left w-full cursor-pointer no-underline"
+    <Link
+      to="/drink/$drinkId"
+      params={{ drinkId: String(drink.id) }}
+      className="w-[441px] h-[164px] p-2 flex gap-4  border border-white/20 rounded-lg overflow-hidden text-left cursor-pointer no-underline"
     >
       <img
         src={drink.image}
         alt={drink.name}
-        className="w-[120px] h-[120px] object-cover flex-shrink-0"
+        className="w-[120px] h-[120px] rounded"
       />
-      <div className="flex flex-col gap-2 py-3 pr-4">
-        <span className="text-white font-bold text-base">{drink.name}</span>
+      <div className="">
+        <h3 className="text-white font-bold text-[24px]">{drink.name}</h3>
         <CategoryBadge category={drink.category} />
       </div>
-    </a>
+    </Link>
   );
 }

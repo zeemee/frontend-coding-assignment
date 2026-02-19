@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from '@tanstack/react-router';
 import { useDrinkDetail } from '../hooks/useDrinkDetail';
 import CategoryBadge from './CategoryBadge';
 import LoadingSpinner from './LoadingSpinner';
@@ -7,10 +8,10 @@ import checkIcon from '../assets/Check-Icon.svg';
 
 interface DetailViewProps {
   drinkId: number;
-  navigate: (to: string) => void;
 }
 
-export default function DetailView({ drinkId, navigate }: DetailViewProps) {
+export default function DetailView({ drinkId }: DetailViewProps) {
+  const navigate = useNavigate();
   const { drink, isLoading, error } = useDrinkDetail(drinkId);
   const [copied, setCopied] = useState(false);
 
@@ -31,9 +32,9 @@ export default function DetailView({ drinkId, navigate }: DetailViewProps) {
   }
 
   return (
-    <div className="flex-1 px-8 py-6">
+    <div className="flex-1 max-w-[630px] mx-auto">
       <button
-        onClick={() => navigate('/')}
+        onClick={() => navigate({ to: '/', search: { q: '' } })}
         className="text-white/60 text-sm mb-4 hover:text-white transition-colors cursor-pointer bg-transparent border-none p-0"
       >
         &larr; Back
@@ -48,7 +49,7 @@ export default function DetailView({ drinkId, navigate }: DetailViewProps) {
             <img
               src={drink.image}
               alt={drink.name}
-              className="w-full md:w-[280px] h-auto rounded-lg object-cover"
+              className="w-[220px] h-[220px] rounded object-cover"
             />
             <div className="mt-3">
               <CategoryBadge category={drink.category} />
@@ -56,7 +57,7 @@ export default function DetailView({ drinkId, navigate }: DetailViewProps) {
           </div>
 
           <div className="flex-1">
-            <h3 className="text-amber-400/80 text-sm font-semibold uppercase tracking-wider mb-3">
+            <h3 className="text-white/70 text-[18px] font-semibold uppercase tracking-wider mb-3">
               {drink.ingredients.length} Ingredients
             </h3>
             <div className="grid grid-cols-2 gap-x-6 gap-y-2">
@@ -71,7 +72,7 @@ export default function DetailView({ drinkId, navigate }: DetailViewProps) {
 
         {/* Instructions */}
         <div className="mb-6">
-          <h3 className="text-amber-400/80 text-sm font-semibold uppercase tracking-wider mb-2">
+          <h3 className="text-white/70 text-[18px] font-semibold uppercase tracking-wider mb-2">
             Instructions
           </h3>
           <p className="text-white text-sm leading-relaxed">{drink.instructions}</p>
@@ -79,7 +80,7 @@ export default function DetailView({ drinkId, navigate }: DetailViewProps) {
 
         {/* Glass Needed */}
         <div className="mb-6">
-          <h3 className="text-amber-400/80 text-sm font-semibold uppercase tracking-wider mb-2">
+          <h3 className="text-white/70 text-[18px] font-semibold uppercase tracking-wider mb-2">
             Glass Needed
           </h3>
           <p className="text-white text-sm">Serve: {drink.container}</p>
@@ -87,19 +88,19 @@ export default function DetailView({ drinkId, navigate }: DetailViewProps) {
 
         {/* Share Link */}
         <div>
-          <h3 className="text-amber-400/80 text-sm font-semibold uppercase tracking-wider mb-2">
+          <h3 className="text-white/70 text-[18px] font-semibold uppercase tracking-wider mb-2">
             Share Link
           </h3>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center rounded-xl overflow-hidden">
             <input
               type="text"
               readOnly
               value={shareUrl}
-              className="flex-1 bg-white/10 border border-white/20 rounded-md px-3 py-2 text-sm text-white/70 focus:outline-none"
+              className="flex-1 bg-white px-4 py-3 text-sm text-gray-600 focus:outline-none"
             />
             <button
               onClick={handleCopy}
-              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-4 py-2 rounded-md transition-colors cursor-pointer border-none"
+              className="flex items-center gap-2 bg-[#104FC9] hover:bg-[#0D3FA1] text-white text-sm font-semibold px-6 py-3 transition-colors cursor-pointer border-none"
             >
               <img src={copied ? checkIcon : copyIcon} alt="" className="w-4 h-4" />
               {copied ? 'Copied' : 'Copy'}

@@ -17,11 +17,12 @@ describe('Pagination', () => {
     expect(onNext).toHaveBeenCalledTimes(1);
   });
 
-  it('displays current page and total pages', () => {
+  it('disables prev button when hasPrev is false', () => {
     render(
-      <Pagination hasPrev={true} hasNext={true} onPrev={() => {}} onNext={() => {}} currentPage={2} totalPages={5} />
+      <Pagination hasPrev={false} hasNext={true} onPrev={() => {}} onNext={() => {}} currentPage={1} totalPages={5} />
     );
 
-    expect(screen.getByText('2 / 5')).toBeInTheDocument();
+    expect(screen.getByLabelText('Previous page')).toBeDisabled();
+    expect(screen.getByLabelText('Next page')).not.toBeDisabled();
   });
 });

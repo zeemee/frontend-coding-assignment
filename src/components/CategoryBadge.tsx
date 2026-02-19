@@ -4,7 +4,7 @@ interface CategoryBadgeProps {
 
 export default function CategoryBadge({ category }: CategoryBadgeProps) {
   return (
-    <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-white uppercase border border-white/40 rounded-full">
+    <span className="mt-2 inline-block px-3 py-1 text-white text-[11px] uppercase border border-white/60 rounded">
       {category}
     </span>
   );
